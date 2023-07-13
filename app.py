@@ -4,6 +4,10 @@ from tensorflow.keras.datasets import imdb
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import sequence
 
+# Load the IMDB movie review dataset
+max_features = 10000
+max_len = 200
+(X_train, y_train), (_, _) = imdb.load_data(num_words=max_features)
 
 
 # Load the trained model
