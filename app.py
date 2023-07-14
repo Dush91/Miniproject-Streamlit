@@ -9,6 +9,13 @@ max_features = 10000
 max_len = 200
 (X_train, y_train), (_, _) = imdb.load_data(num_words=max_features)
 
+# Preprocess the text input
+def preprocess_text(text):
+    word_index = imdb.get_word_index()
+    words = text.lower().split()
+    x = [word_index[word] if word in word_index and word_index[word] < max_features else 0 for word in words]
+    x = sequence.pad_sequences([x], maxlen=max_len)
+    return x
 
 # Load the trained model
 model = load_model('sentiment_model.h5')
