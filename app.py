@@ -24,6 +24,12 @@ def predict_sentiment(text):
 
 # Streamlit app
 def main():
+    st.set_page_config(
+    page_title="Sentiment Analysis App",
+    page_icon="🚀",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
     st.title("Sentiment Analysis")
     text = st.text_area("Enter a movie review", height=200)
     if st.button("Predict"):
